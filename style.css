@@ -1,0 +1,59 @@
+*{
+    color: #d6d6d6;
+    background-color: #2a2929;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;    
+}
+
+/* nav bar styling */
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+a:hover{
+    background-color: #d6d6d6;
+    color: #2a2929;
+    font-size: 1.2em;
+}
+
+/* home page */
+
+
+
+
+/* about page */
+#profile-photo{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+
+/* portfolio page */
+
+
+
+
+/* footer */
+footer{
+    display: flex;
+    flex-direction: column;
+}
+
+footer #group{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer #links{
+    display: flex;
+    flex-direction: column;  
+}
+
+footer p{
+    text-align: center;
+}
