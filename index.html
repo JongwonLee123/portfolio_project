@@ -5,34 +5,49 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
+
     </head>
     <body>
         <header>
             <nav>
-                <ul><a href="./">Home</a></ul>
+                <ul><a href="./" class="active">Home</a></ul>
                 <ul><a href="./about.html">About</a></ul>
                 <ul><a href="./portfolio.html">Portfolio</a></ul>
-                <ul><a href="./about.html#resume">Resume</a></ul>
             </nav>
         </header>
-        <main>
-            <h1>Welcome to My Website!</h1>
-            <p>Feel free to explore my portfolio and learn more about my work.</p>
-            <hr>
-            <div>Will add the slideshow here</div>
+        <main id="homepage">
+            <section>
+                <h1 id="hero-title"></h1>
+                <p id="hero-sub">
+                Feel free to explore my portfolio and learn more about my work.
+                </p>
+            </section>
+            <section>
+                <div>Will add the slideshow here</div>
+            </section>
         </main>
+        <hr>
         <footer>
-            <div id="group">
-                <section id="info">
-                    <h2>Jongwon Lee</h2>
-                    <p>This footer will help you get in touch with me. Will edit to fit better</p>
+            <section id="links">
+                <section id="group">
+                    <a href="https://github.com/JongwonLee123">
+                        <img src="./images/github.svg">
+                    </a>
+                    <a class="footer-link" href="https://github.com/JongwonLee123">GitHub</a>
                 </section>
-                <section id="links">
-                    <a href="https://github.com/JongwonLee123?tab=repositories">GitHub</a>
-                    <a href="https://www.linkedin.com/in/jongwon-lee-39a3ba203/">LinkedIn</a>
-                    <a href="mailto:jklee4589@gmail.com">Email</a>
+                <section id="group">
+                    <a href="mailto:jklee4589@gmail.com">
+                        <img src="./images/mail.svg">
+                    </a>
+                    <a class="footer-link" href="mailto:jklee4589@gmail.com">Email</a>
                 </section>
-            </div>
+                <section id="group">
+                    <a href="https://www.linkedin.com/in/jongwon-lee-39a3ba203/">
+                        <img src="./images/linkedin.svg">
+                    </a>
+                    <a class="footer-link" href="https://www.linkedin.com/in/jongwon-lee-39a3ba203/">LinkedIn</a>
+                </section>
+            </section>
             <p id="copywrite">&copy; 2026 Jongwon Lee</p>
         </footer>
     </body>
