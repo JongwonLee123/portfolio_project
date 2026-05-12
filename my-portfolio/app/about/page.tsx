@@ -4,6 +4,7 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export default function AboutPage(){
   const skills = [
@@ -56,11 +57,11 @@ export default function AboutPage(){
   }
 
   return(
-    <main>
+    <main className="font-mono-display">
       {/* Information about Me */}
-      <div className="bg-neutral-800 pb-4">
-        <div className="max-w-3xl mx-auto pt-16">
-          <Navbar />
+      <div className="bg-neutral-800">
+        <Navbar />
+        <div className="max-w-3xl mx-auto">
           <section className="flex flex-row gap-8 p-8 items-center">
             <Image
               src="/images/profile.jpg"
@@ -178,6 +179,7 @@ export default function AboutPage(){
           </section>
         </div>
       </section>
+      <Footer />
     </main>
   );
 }

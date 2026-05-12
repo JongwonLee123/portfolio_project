@@ -4,6 +4,7 @@ import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { projects } from "@/data/projects"
 import Navbar from "@/components/Navbar"
+import Footer from "@/components/Footer"
 import Envelope from "@/components/Envelope"
 
 const WINDOW_SIZE = 3
@@ -36,7 +37,7 @@ export default function Projects() {
     }
 
     return (
-        <main className="min-h-screen items-center justify-center px-4">
+        <main className="min-h-screen items-center justify-center font-mono-display">
             <Navbar />
 
             <div className="flex flex-col items-center gap-8 px-4 mt-24 w-full">
@@ -138,6 +139,7 @@ export default function Projects() {
                     </AnimatePresence>
                 </div>
             </div>
+            <Footer />
         </main>
     )
 }
