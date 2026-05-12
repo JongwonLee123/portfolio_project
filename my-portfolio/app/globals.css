@@ -9,9 +9,6 @@
   --ghost: #1e1e1e;
   --accent: #1D9E75;
   --bg: #0d0d0d;
-}
-
-@theme inline {
   --color-background: var(--background);
   --color-foreground: var(--bg);
   --font-serif-display: var(--font-serif-display);
