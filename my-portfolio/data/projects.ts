@@ -21,7 +21,7 @@ export const projects: Project[] = [
         color: "#6366f1",
         techStack: ["Next.js", "TypeScript", "Tailwind CSS"],
         githubUrl: "https://github.com/JongwonLee123/portfolio_project",   
-        liveUrl: "https://portfolio-project-je30w08qf-jongwon-s-projects.vercel.app",
+        liveUrl: "https://jongwon-lee-portfolio.vercel.app/",
         year: 2026,
     },
 
