@@ -9,6 +9,7 @@
   --ghost: #1e1e1e;
   --accent: #1D9E75;
   --bg: #0d0d0d;
+  --mono-blue: #185FA5;
 }
 
 @theme inline {
@@ -21,11 +22,12 @@
   --color-tertiary: var(--tertiary);
   --color-ghost: var(--ghost);
   --color-accent: var(--accent);
+  --color-mono-blue: var(--mono-blue);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: hsl(0, 0%, 6%);
+    --background: #0f0f0f;
     --foreground: #ededed;
   }
 }
@@ -40,6 +42,9 @@ h2 {
   margin-bottom: 6px;
 }
 
-p{
-  font-size: 14px;
+@media print{
+  * {
+    -webkit-print-color-adjust: exact;
+    -print-color-adjust: exact;
+  }
 }

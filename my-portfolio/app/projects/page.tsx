@@ -37,53 +37,59 @@ export default function Projects() {
     }
 
     return (
-        <main className="min-h-screen items-center justify-center font-mono-display">
+        <main className="font-mono-display">
             <Navbar />
 
-            <div className="flex flex-col items-center gap-8 px-4 mt-24 w-full">
-                <h1 className="text-2xl font-bold self-start max-auto w-full mx-auto mb-16">Projects</h1>
+            <div className="flex flex-col">
+                <section className="flex flex-row justify-between items-center mx-8 my-12">
+                    <section>
+                        <p className="text-accent">&#91; portfolio &#93;</p>
+                        <div className="text-5xl font-serif-display">
+                            <h1 className="my-3">Projects.</h1>
+                            <h1 className="text-tertiary italic">things I built.</h1>
+                        </div>
+                    </section>
+
+                    <section className="flex flex-row text-tertiary gap-6">
+                        <section className="text-right">
+                            <h2 className="text-2xl font-serif-display">{projects.length}</h2>
+                            <p className="text-xs">total projects</p>
+                        </section>
+                        <section className="flex gap-3 self-start [&>button]:border [&>button]:text-primary [&>button]:border-primary [&>button]:p-2 [&>button]:rounded-xl [&>button]:disabled:opacity-20 [&>button]:transition-opacity [&>button]:hover:opacity-60">
+                            <button onClick={handlePrev} disabled={windowStart === 0}>&#x2190;</button>
+                            <button onClick={handleNext} disabled={windowStart >= projects.length - WINDOW_SIZE}>&#x2192;</button>
+                        </section>
+                    </section>
+                </section>
+
+                <div className="border-b border-tertiary/30"></div>
 
                 {/* Carousel */}
-                <div className="flex items-center gap-4 w-full max-auto">
-                    <button
-                        onClick={handlePrev}
-                        disabled={windowStart === 0}
-                        className="text-3xl shrink-0 disabled:opacity-20 hover:opacity-60 transition-opacity"
-                    >
-                        ‹
-                    </button>
-
+                <div className="flex items-center gap-4 w-full max-auto my-12">
                     <div className="flex-1" style={{ overflowX: "clip" }}>
-                        <AnimatePresence mode="wait" custom={direction}>
-                            <motion.div
-                                key={windowStart}
-                                custom={direction}
-                                variants={slideVariants}
-                                initial="enter"
-                                animate="center"
-                                exit="exit"
-                                transition={{ duration: 0.3, ease: "easeInOut" }}
-                                className="flex justify-center gap-6"
-                            >
+                        <div className="flex justify-center md:gap-6 lg:gap-32">
+                            <AnimatePresence mode="popLayout" custom={direction}>
                                 {visibleProjects.map(project => (
-                                    <Envelope
+                                    <motion.div
                                         key={project.id}
-                                        project={project}
-                                        isOpen={openId === project.id}
-                                        onClick={() => handleEnvelopeClick(project.id)}
-                                    />
+                                        layout
+                                        custom={direction}
+                                        variants={slideVariants}
+                                        initial="enter"
+                                        animate="center"
+                                        exit="exit"
+                                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                                    >
+                                        <Envelope
+                                            project={project}
+                                            isOpen={openId === project.id}
+                                            onClick={() => handleEnvelopeClick(project.id)}
+                                        />
+                                    </motion.div>
                                 ))}
-                            </motion.div>
-                        </AnimatePresence>
+                            </AnimatePresence>
+                        </div>
                     </div>
-
-                    <button
-                        onClick={handleNext}
-                        disabled={windowStart >= projects.length - WINDOW_SIZE}
-                        className="text-3xl shrink-0 disabled:opacity-20 hover:opacity-60 transition-opacity"
-                    >
-                        ›
-                    </button>
                 </div>
 
                 {/* Info panel */}
@@ -96,44 +102,47 @@ export default function Projects() {
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: 16 }}
                                 transition={{ duration: 0.25 }}
-                                className="border-t border-neutral-200 pt-6"
                             >
-                                <h2 className="text-xl font-semibold mb-1">{openProject.title}</h2>
-                                <p className="text-sm text-neutral-500 mb-3">{openProject.year}</p>
-                                <p className="text-sm mb-4">{openProject.description}</p>
+                                <div className="border-t border-tertiary/30"></div>
+                                <section className="mx-8 my-6 text-tertiary">
+                                    <p className="text-accent">&#91; opened &#93;</p>
+                                    <h2 className="font-serif-display text-3xl my-2 text-primary">{openProject.title}</h2>
+                                    <p className="text-xs text-neutral-500">{openProject.year}</p>
+                                    <p className="text-xs my-6">{openProject.description}</p>
 
-                                <div className="flex flex-wrap gap-2 mb-4">
-                                    {openProject.techStack.map(tech => (
-                                        <span
-                                            key={tech}
-                                            className="text-xs px-2 py-1 rounded-full text-white"
-                                            style={{ backgroundColor: openProject.color }}
-                                        >
-                                            {tech}
-                                        </span>
-                                    ))}
-                                </div>
+                                    <div className="flex flex-wrap gap-2 mb-6">
+                                        {openProject.techStack.map(tech => (
+                                            <span
+                                                key={tech}
+                                                className="text-xs px-2 py-1"
+                                                style={{ border: `1px solid ${openProject.color}`, color: openProject.color }}
+                                            >
+                                                {tech}
+                                            </span>
+                                        ))}
+                                    </div>
 
-                                <div className="flex gap-4 text-sm">
-                                    <a
-                                        href={openProject.githubUrl}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="underline"
-                                    >
-                                        GitHub
-                                    </a>
-                                    {openProject.liveUrl && openProject.liveUrl !== openProject.githubUrl && (
+                                    <div className="flex gap-4 text-sm">
                                         <a
-                                            href={openProject.liveUrl}
+                                            href={openProject.githubUrl}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="underline"
+                                            className="underline hover:text-primary"
                                         >
-                                            Live
+                                            github &#8599;
                                         </a>
-                                    )}
-                                </div>
+                                        {openProject.liveUrl && openProject.liveUrl !== openProject.githubUrl && (
+                                            <a
+                                                href={openProject.liveUrl}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="underline hover:text-primary"
+                                            >
+                                                live &#8599;
+                                            </a>
+                                        )}
+                                    </div>
+                                </section>
                             </motion.div>
                         )}
                     </AnimatePresence>

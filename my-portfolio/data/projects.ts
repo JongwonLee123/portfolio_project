@@ -21,7 +21,7 @@ export const projects: Project[] = [
         color: "#6366f1",
         techStack: ["Next.js", "TypeScript", "Tailwind CSS"],
         githubUrl: "https://github.com/JongwonLee123/portfolio_project",   
-        liveUrl: "https://github.com/JongwonLee123/portfolio_project",
+        liveUrl: "https://portfolio-project-je30w08qf-jongwon-s-projects.vercel.app",
         year: 2026,
     },
 
@@ -71,5 +71,16 @@ export const projects: Project[] = [
         githubUrl: "https://github.com/JongwonLee123/MarvelComic",
         liveUrl: "https://jongwonlee123.github.io/MarvelComic/",
         year: 2023,
+    },
+    {
+        id:"cart",
+        title: "Autonomous Arduino Car",
+        description: "auto car",
+        image: "/images/marvel.png",
+        color:"#ef4444",
+        techStack: ["C++", "Arduino", "Embedded Systems"],
+        githubUrl: "",
+        liveUrl: "",
+        year: 2024,
     },
 ]

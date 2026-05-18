@@ -15,14 +15,14 @@ export default function Envelope({project, isOpen, onClick}: Props){
         <motion.div
             whileHover={isOpen ? undefined : "hover"}
             onClick={onClick}
-            className="relative cursor-pointer w-64" 
+            className="relative cursor-pointer w-64 lg:scale-125" 
             style={{aspectRatio: "1.6"}}
         >
             {/* Envelope body */}
-            <div className="absolute inset-0 rounded-md border border-neutral-200 bg-white"></div>
+            <div className="absolute inset-0 rounded-md bg-[#111]"></div>
             {/* Left Flap */}
             <div
-                className="absolute inset-0 bg-neutral-100"
+                className="absolute inset-0 bg-[#161616]"
                 style={{
                     clipPath: "polygon(0 0, 100% 50%, 0 100%)",
                     zIndex: 2,
@@ -30,7 +30,7 @@ export default function Envelope({project, isOpen, onClick}: Props){
             />
             {/* Right Flap */}
             <div
-                className="absolute inset-0 bg-neutral-100"
+                className="absolute inset-0 bg-[#161616]"
                 style={{
                     clipPath: "polygon(100% 0, 0 50%, 100% 100%)",
                     zIndex: 2,
@@ -38,7 +38,7 @@ export default function Envelope({project, isOpen, onClick}: Props){
             />
             {/* bottom triangle */}
             <div
-                className="absolute inset-0 bg-neutral-50"
+                className="absolute inset-0 bg-[#141414]"
                 style={{
                     clipPath: "polygon(0 100%, 50% 40%, 100% 100%)",
                     zIndex: 2
@@ -46,7 +46,7 @@ export default function Envelope({project, isOpen, onClick}: Props){
             />
             {/* top flap */}
             <motion.div
-                className="absolute inset-0 bg-white border border-neutral-200 rounded-t-md"
+                className="absolute inset-0 bg-[#111] rounded-t-md"
                 style={{
                     clipPath: "polygon(0 0, 100% 0, 50% 70%)",
                     transformOrigin: "top center",
@@ -90,7 +90,7 @@ export default function Envelope({project, isOpen, onClick}: Props){
                     {project.techStack.slice(0, 2).map(tag => (
                         <span 
                             key={tag} 
-                            className="text-white text-[8px] px-1.5 py-0.5 rounded-full"
+                            className="text-white text-[8px] px-1.5 py-0.5"
                             style={{background: "rgba(255,255,255,0.2)"}}
                         >
                             {tag}

@@ -5,6 +5,7 @@ import Footer from "@/components/Footer"
 import Image from "next/image"
 
 import {useRouter} from "next/navigation";
+import {motion} from "framer-motion";
 
 export default function Home() {
     const router = useRouter();
@@ -14,8 +15,14 @@ export default function Home() {
             <Navbar />
             <div className="flex flex-row font-mono-display px-8 flex-1">
                 <div className="flex flex-col flex-[2] border-r border-tertiary/30 pr-8 pt-24">
-                    <span className="w-fit border border-accent text-accent py-1 px-2 rounded-sm">open to new grad &middot; june 2026</span>
-                    
+                    <motion.span
+                        className="w-fit border border-accent text-accent py-1 px-2 rounded-sm"
+                        initial=""
+                        animate=""
+                    >
+                        open to new grad &middot; june 2026
+                    </motion.span>
+
                     {/* Greeting Section */}
                     <section className="text-6xl font-serif-display my-12">
                         <h1 className="text-primary">Hi, I'm Jongwon</h1>
@@ -49,7 +56,7 @@ export default function Home() {
                             <li>postgresql</li>
                         </ul>
                     </div>
-                   
+
                 </div>
                 <div className="flex flex-col flex-[1] pl-8 text-tertiary [&>section]:my-12 [&>section:first-of-type]:mt-0 pt-24">
                     {/* top */}
